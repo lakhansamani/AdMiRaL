@@ -5,6 +5,14 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+var session = require('express-session');
+var mongoose = require('mongoose');
+var passport = require('./auth');
+var MongoStore = require('connect-mongo')(session); // helps storing session in db
+
+var dburi="mongodb://localhost/admiral";
+var db=mongoose.connect(dburi);
+
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
@@ -18,9 +26,19 @@ app.set('view engine', 'jade');
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
+app.use(cookieParser());
+app.use(session({
+    secret: 'kasdfsdf3242342423',
+    store: new MongoStore({
+        mongooseConnection:mongoose.connection
+    }),
+    resave: false,
+    saveUninitialized: true
+}));
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
