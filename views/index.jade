@@ -6,12 +6,12 @@ block content
 			div(class='well')
 				h3='AdMiRaL | Login'
 				hr
-				form
+				form(action='/users/login',method='post')
 					label='Username'
-					input(type='email', class='form-control', placeholder='Entered Registered email address')
+					input(type='email',name='username', class='form-control', placeholder='Enter registered email address')
 					br
 					label='Password'
-					input(type='password',class='form-control',placeholder='Your password')
+					input(type='password',name='password',class='form-control',placeholder='Your password')
 					br
 					input(type='submit',class='btn btn-primary', value='Login')
 					&nbsp;&nbsp;

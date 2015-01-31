@@ -6,8 +6,8 @@ passport.use(new LocalStrategy(
 	function(username, password, done) {
 		// code for register user
 		// var u=new user();
-		// u.username=username;
-		// u.password=u.generateHash(password);
+		// u.username="admin@mysite.com";
+		// u.password=u.generateHash("123456");
 		// u.save(function(err,res){
 		// 	if(err){
 		// 		console.log(err);
@@ -34,11 +34,7 @@ passport.use(new LocalStrategy(
 				
 			}
 		})
-		// if (username === 'admin' && password === '1234') {
-		// 	return done(null, {username: 'admin'});
-		// }
-
-		// return done(null, false);
+		
 	}
 ));
 
