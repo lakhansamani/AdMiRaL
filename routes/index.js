@@ -10,7 +10,8 @@ router.get('/home', function(req, res, next) {
   	res.redirect("/");
   }
   else{
-	res.render('home', { title: 'Dashboard'});
+  	console.log(req.user);
+	res.render('home', { title: 'Dashboard',user:req.user });
   }
 });
 module.exports = router;

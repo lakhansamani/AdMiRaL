@@ -29,7 +29,7 @@ passport.use(new LocalStrategy(
 					return done(null, false);
 				}
 				else{
-					return done(null,{username:username});
+					return done(null,{username:username,name:user.name});
 				}
 				
 			}
@@ -39,11 +39,11 @@ passport.use(new LocalStrategy(
 ));
 
 passport.serializeUser(function(user, done) {
-	done(null, user.username);
+	done(null, user);
 });
 
-passport.deserializeUser(function(username, done) {
-	done(null, {username: username});
+passport.deserializeUser(function(user, done) {
+	done(null, {username:user.username,name:user.name});
 });
 
 module.exports = passport;
