@@ -4,9 +4,9 @@ var user =  require('./../models/category');
 var passport = require('./../auth');
 var category = require('./../models/category');
 
-router.get('/categories_home', function(req, res, next) {
+router.get('/', function(req, res, next) {
   if(req.session.passport.user === undefined){
-  	res.redirect("/users/login");
+  	res.redirect("/");
   }
   else{
   		category.find(function(err,categories){
