@@ -8,6 +8,10 @@ router.get('/', function(req, res, next) {
 });
 router.post('/login',passport.authenticate('local',{
 	failureRedirect:'/',
-	successRedirect:'/'
+	successRedirect:'/home'
 }));
+router.get('/logout',function(req,res){
+	req.logout();
+	res.redirect('/');
+});
 module.exports = router;

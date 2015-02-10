@@ -1,0 +1,26 @@
+doctype html
+html
+	head
+		title= 'AdMiRaL'
+		link(rel='stylesheet', href='/stylesheets/bootstrap.css')
+		link(rel='stylesheet', href='/stylesheets/bootstrap.css.map')
+	body
+		nav(class='navbar navbar-inverse')
+			div(class='container-fluid')
+				div(class='navbar-header')
+					button(type='button', class='navbar-toggle collapsed',data-toggle='collapse',data-target='#bs-example-navbar-collapse-1')
+						span(class='sr-only')
+						span(class='icon-bar')
+						span(class='icon-bar')
+						span(class='icon-bar')
+					a(class='navbar-brand', href='#') AdMiRaL
+				div(class='collapse navbar-collapse' id='bs-example-navbar-collapse-1')
+					ul(class='nav navbar-nav navbar-right')
+						li
+							a(href="/home")="Dashboard"
+						li
+							a(href="/users/logout")="Logout"
+		block content
+
+		script(src='/javascripts/jquery-1.11.2.min.js')
+		srcipt(src='/javascripts/bootstrap.js')
