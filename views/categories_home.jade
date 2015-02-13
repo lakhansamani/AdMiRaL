@@ -24,8 +24,8 @@ block content
 					td #{c.name}
 					td #{c.modified}
 					td
-						button(class='btn btn-xs btn-success') edit
+						a(href='/category/edit/#{c._id}' class='btn btn-xs btn-info') Edit
 						&nbsp;
-						button(class='btn btn-xs btn-danger') delete
+						a(href='/category/delete/#{c._id}' class='btn btn-xs btn-danger') Delete
 				- v++
 

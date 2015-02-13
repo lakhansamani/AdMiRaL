@@ -47,5 +47,21 @@ router.post('/add_post',function(req,res,err){
 		})
 	}
 });
+router.get('/delete/:_id',function(req,res,err){
+	if(req.session.passport.user === undefined){
+		redirect("/");
+	}
+	else{
+		console.log(req.params._id);
+		category.remove({_id:req.params._id},function(err,result){
+			if(err){
+				console.log(err);
+			}
+			else{
+				res.redirect('/category/categories_home');
+			}
+		})
+	}
+})
 
 module.exports = router;
