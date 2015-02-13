@@ -6,7 +6,7 @@ passport.use(new LocalStrategy(
 	function(username, password, done) {
 		// code for register user
 		// var u=new user();
-		// u.username="admin@mysite.com";
+		// u.username="admin2@mysite.com";
 		// u.password=u.generateHash("123456");
 		// u.save(function(err,res){
 		// 	if(err){
@@ -29,7 +29,7 @@ passport.use(new LocalStrategy(
 					return done(null, false);
 				}
 				else{
-					return done(null,{username:username,name:user.name});
+					return done(null,user);
 				}
 				
 			}
@@ -43,7 +43,7 @@ passport.serializeUser(function(user, done) {
 });
 
 passport.deserializeUser(function(user, done) {
-	done(null, {username:user.username,name:user.name});
+	done(null, user);
 });
 
 module.exports = passport;

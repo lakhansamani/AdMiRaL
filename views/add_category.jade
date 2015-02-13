@@ -1,0 +1,13 @@
+extends main_layout
+
+block content
+	div(class='container')
+		h2 Add new Category
+		hr
+		form(action='/category/add_post' method='post')
+			div(class='row')
+				div(class='col-lg-4')
+					input(type="text", name="category_name", placeholder="Enter category name" class='form-control')
+					br
+					input(type='hidden', name='user_id', value='#{user._id}')
+					input(type="submit", text="Submit" class='btn btn-success')
