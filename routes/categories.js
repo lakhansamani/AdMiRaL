@@ -62,6 +62,36 @@ router.get('/delete/:_id',function(req,res,err){
 			}
 		})
 	}
-})
+});
 
+router.get('/edit_category/:_id',function(req,res,err){
+	if(req.session.passport.user === undefined){
+		res.redirect('/');
+	}
+	else{
+		category.findOne({_id:req.params._id},function(err,category){
+			if(err){
+				console.log(err);
+			}
+			else{
+				res.render('edit_category',{title:"Edit category",category:category,user:req.user});
+			}
+		});
+	}
+});
+router.post('/edit_post',function(req,res,err){
+	if(req.session.passport.user === undefined){
+		res.redirect("/");
+	}
+	else{
+		category.update({_id:req.body._id},{$set:{name:req.body.category_name}},function(err,result){
+		if(err){
+			console.log(err);
+		}
+		else{
+			res.redirect("/category/categories_home");
+		}
+	})
+	}
+});
 module.exports = router;
