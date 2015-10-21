@@ -1,4 +1,10 @@
 # AdMiRaL
-Site admin panel using Express (Web framework for node.js) and Mongo DB
+CRUD and Auth example using Express (Web framework for node.js) and Mongo DB
 
-* Under production, code is available in production branch
+### how to start ?
+
+* ```npm install```
+* ```node server.js```
+
+
+

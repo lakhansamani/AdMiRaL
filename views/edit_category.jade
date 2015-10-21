@@ -1,0 +1,14 @@
+extends main_layout
+
+block content
+	div(class='container')
+		h2 Update Category
+		hr
+		form(action='/category/edit_post' method='post')
+			div(class='row')
+				div(class='col-lg-4')
+					input(type="text", name="category_name", placeholder="Enter category name" class='form-control', value='#{category.name}')
+					br
+					input(type='hidden', name='user_id', value='#{user._id}')
+					input(type='hidden', name='_id', value='#{category._id}')
+					input(type="submit", text="Submit" class='btn btn-success')

@@ -1,0 +1,24 @@
+extends main_layout
+
+block content
+	div(class='container')
+		div(class='row')
+			div(class='col-lg-12')
+				h1 Dashboard
+				hr
+				div.row
+					div.col-lg-3
+						a(class='btn btn-info btn-block', href='/category/categories_home') Product Categories
+						br
+						a(class='btn btn-primary btn-block', href='/products/') Product
+						br
+					div.col-lg-2
+					div.col-lg-5
+						div.well
+							h4 User Details
+							hr
+							b Name:
+							span    #{user.name}
+							br
+							b Username:
+							span    #{user.username}

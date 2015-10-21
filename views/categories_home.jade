@@ -1,0 +1,31 @@
+extends main_layout
+
+block content
+
+	div(class='container')
+		div(class='row')
+			div(class='col-lg-6')
+				h2 Categories
+			div(class='col-lg-6')
+				br
+				a(href='/category/add_category' class='btn btn-info pull-right')
+					Add New Category
+		hr
+		-var v = 1
+		table(class='table table-bordered')
+			tr
+				th #
+				th Name
+				th modified
+				th Operation
+			each c in categories
+				tr
+					td #{v}
+					td #{c.name}
+					td #{c.modified}
+					td
+						a(href='/category/edit_category/#{c._id}' class='btn btn-xs btn-info') Edit
+						&nbsp;
+						a(href='/category/delete/#{c._id}' class='btn btn-xs btn-danger') Delete
+				- v++
+

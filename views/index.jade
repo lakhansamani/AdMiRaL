@@ -1,0 +1,18 @@
+extends layout
+
+block content
+	div(class='row')
+		div(class='col-lg-4 col-md-4 col-lg-offset-4 col-md-offset-4')
+			div(class='well')
+				h3='AdMiRaL | Login'
+				hr
+				form(action='/users/login',method='post')
+					label='Username'
+					input(type='email',name='username', class='form-control', placeholder='Enter registered email address')
+					br
+					label='Password'
+					input(type='password',name='password',class='form-control',placeholder='Your password')
+					br
+					input(type='submit',class='btn btn-primary', value='Login')
+					&nbsp;&nbsp;
+					a(href='/users/forgot-password', class='btn btn-danger')='Forgot Password ?'
